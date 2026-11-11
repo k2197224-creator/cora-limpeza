@@ -1,0 +1,1121 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Limpeza e conservação para academias. Ambientes mais limpos, mais motivação!">
+<meta name="theme-color" content="#031636">
+<title>Cora Limpeza e Conservação</title>
+
+<script>
+var LOGO = "logo";
+var FOTO1 = "foto1";
+var FOTO2 = "foto2";
+var FOTO3 = "foto3";
+var FOTO4 = "foto4";
+var FOTO5 = "foto5";
+var FOTO6 = "foto6";
+var VIDEO = "video";
+
+if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+if (location.hash) history.replaceState(null, "", location.pathname + location.search);
+window.scrollTo(0, 0);
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root {
+--navy:#06214d;
+--deep:#031636;
+--blue:#1f8fe8;
+--sky:#46c1f6;
+--ice:#eef6fd;
+--line:#d3e2f2;
+--ink:#10213f;
+--muted:#52627d;
+--serif:'DM Serif Display',Georgia,serif;
+--sans:'Manrope',system-ui,sans-serif;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{
+font-family:var(--sans);
+color:var(--ink);
+background:#fff;
+line-height:1.7;
+font-size:1.02rem;
+overflow-x:hidden;
+}
+body.splashing{overflow:hidden}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:3px solid var(--sky);outline-offset:3px}
+.wrap{max-width:1180px;margin:auto;padding:0 24px}
+
+h1,h2,h3{
+font-family:var(--serif);
+font-weight:400;
+line-height:1.1;
+color:var(--navy);
+}
+h2{font-size:clamp(2.1rem,4.6vw,3.3rem);margin-bottom:18px}
+.lead{color:var(--muted);max-width:540px;font-size:1.08rem}
+section{padding:100px 0;position:relative}
+
+.btn{
+display:inline-block;
+padding:15px 30px;
+border-radius:999px;
+font:700 .97rem var(--sans);
+border:2px solid transparent;
+cursor:pointer;
+transition:transform .25s,background .25s,color .25s;
+}
+.btn:hover{transform:translateY(-3px)}
+.btn-fill{background:var(--sky);color:var(--deep);box-shadow:0 10px 24px rgba(70,193,246,.25)}
+.btn-fill:hover{background:#fff}
+.btn-out{border-color:rgba(255,255,255,.5);color:#fff}
+.btn-out:hover{background:#fff;color:var(--navy)}
+.btn-dark{background:var(--navy);color:#fff}
+.btn-dark:hover{background:var(--blue)}
+
+.ph{
+position:relative;
+overflow:hidden;
+display:grid;
+place-items:center;
+text-align:center;
+color:#2f6aa3;
+background:repeating-linear-gradient(135deg,#eef6fd 0 14px,#e3f0fb 14px 28px);
+border:2px dashed #7fb6e6;
+}
+.ph img{
+display:none;
+position:absolute;
+inset:0;
+width:100%;
+height:100%;
+object-fit:cover;
+transition:transform .8s;
+}
+.ph.ok{border:0;box-shadow:0 20px 44px rgba(6,33,77,.2)}
+.ph.ok img{display:block}
+.ph figcaption{padding:14px;font-weight:800;line-height:1.3}
+.ph figcaption:before{
+content:"+";
+display:grid;
+place-items:center;
+width:50px;
+height:50px;
+margin:0 auto 10px;
+border-radius:50%;
+background:#fff;
+color:var(--blue);
+font-size:2rem;
+box-shadow:0 6px 16px rgba(31,143,232,.3);
+}
+.ph figcaption small{display:block;font-weight:600;font-size:.8rem;opacity:.85}
+.ph.ok figcaption{display:none}
+
+.brand{display:inline-flex;align-items:center}
+.brand img{display:none;height:68px;width:auto}
+.brand.ok img{display:block}
+.brand.ok .lg{display:none}
+.lg{
+display:grid;
+place-items:center;
+width:200px;
+height:64px;
+border:2px dashed rgba(70,193,246,.8);
+border-radius:12px;
+color:#9fd3f7;
+font-weight:800;
+font-size:.85rem;
+letter-spacing:.12em;
+}
+
+nav{
+position:fixed;
+inset:0 0 auto 0;
+z-index:50;
+padding:16px 0;
+transition:background .3s,padding .3s,box-shadow .3s;
+}
+nav.solid{
+background:var(--deep);
+padding:8px 0;
+box-shadow:0 2px 18px rgba(0,0,0,.28);
+}
+.nav-in{display:flex;justify-content:space-between;align-items:center}
+.menu{display:flex;gap:30px;align-items:center;list-style:none}
+.menu a{color:#e4f0fc;font-weight:600;font-size:.95rem}
+.menu a:not(.btn):hover{color:var(--sky)}
+.menu .btn{padding:10px 22px;font-size:.9rem;color:var(--deep)}
+.burger{
+display:none;
+background:none;
+border:0;
+width:34px;
+height:26px;
+position:relative;
+cursor:pointer;
+z-index:70;
+}
+.burger i{
+position:absolute;
+left:0;
+width:100%;
+height:3px;
+background:#fff;
+border-radius:3px;
+transition:.3s;
+}
+.burger i:nth-child(1){top:2px}
+.burger i:nth-child(2){top:11px}
+.burger i:nth-child(3){top:20px}
+
+.hero{
+background:linear-gradient(165deg,var(--navy) 35%,#0a3a85);
+color:#fff;
+overflow:hidden;
+padding:140px 0 110px;
+}
+.hero-grid{
+display:grid;
+grid-template-columns:1.15fr .85fr;
+gap:64px;
+align-items:center;
+position:relative;
+z-index:2;
+}
+.hero h1{
+color:#fff;
+font-size:clamp(2.7rem,6.2vw,4.9rem);
+margin-bottom:24px;
+}
+.hero p{
+color:#c9defa;
+max-width:480px;
+font-size:1.12rem;
+margin-bottom:34px;
+}
+.btns{display:flex;gap:14px;flex-wrap:wrap}
+.hero-fig{position:relative}
+.hero-fig:before{
+content:"";
+position:absolute;
+inset:22px -22px -22px 22px;
+border:3px solid var(--sky);
+opacity:.5;
+border-radius:999px 999px 28px 28px;
+}
+.hero-ph{
+aspect-ratio:3/4;
+border-radius:999px 999px 28px 28px;
+position:relative;
+z-index:1;
+color:#9fd3f7;
+background:rgba(255,255,255,.07);
+border-color:rgba(70,193,246,.6);
+}
+.hero-tag{
+position:absolute;
+left:-28px;
+bottom:36px;
+z-index:3;
+background:#fff;
+color:var(--navy);
+padding:16px 22px;
+border-radius:18px;
+font-weight:700;
+font-size:.92rem;
+line-height:1.4;
+max-width:215px;
+box-shadow:0 14px 34px rgba(0,0,0,.28);
+}
+
+/* ABERTURA */
+.splash{
+position:fixed;
+inset:0;
+z-index:200;
+display:none;
+align-items:center;
+justify-content:center;
+flex-direction:column;
+background:radial-gradient(ellipse at center,rgba(31,143,232,.13),transparent 58%),var(--deep);
+opacity:1;
+visibility:visible;
+overflow:hidden;
+transition:opacity .7s ease,visibility .7s ease;
+}
+.js .splash{display:flex}
+.splash.hide{opacity:0;visibility:hidden;pointer-events:none}
+.splash .brand{
+position:relative;
+z-index:4;
+transform-origin:center center;
+animation:logoZoomReverso 2.25s cubic-bezier(.16,1,.3,1) both;
+}
+.splash .brand img{
+height:auto;
+max-height:170px;
+width:min(320px,72vw);
+filter:drop-shadow(0 8px 25px rgba(0,0,0,.2));
+}
+.splash .lg{width:260px;height:90px}
+@keyframes logoZoomReverso{
+0%{opacity:0;transform:scale(2.35);filter:blur(3px)}
+18%{opacity:1}
+100%{opacity:1;transform:scale(1);filter:blur(0)}
+}
+.js .hero-grid>*{animation:heroEntrada .8s 2.2s both}
+.js .hero-grid>*:nth-child(2){animation-delay:2.35s}
+@keyframes heroEntrada{
+from{opacity:0;transform:translateY(20px)}
+to{opacity:1;transform:none}
+}
+
+.about-grid{
+display:grid;
+grid-template-columns:.9fr 1.1fr;
+gap:80px;
+align-items:center;
+}
+.about-fig{position:relative}
+.about-fig:before{
+content:"";
+position:absolute;
+inset:-18px 18px 18px -18px;
+background:var(--ice);
+border:2px solid var(--line);
+border-radius:28px 140px 28px 28px;
+}
+.about-fig:after{
+content:"";
+position:absolute;
+right:-28px;
+bottom:-28px;
+width:120px;
+height:120px;
+background-image:radial-gradient(var(--sky) 2.5px,transparent 2.5px);
+background-size:18px 18px;
+}
+.about-ph{
+aspect-ratio:9/14;
+border-radius:28px 140px 28px 28px;
+position:relative;
+z-index:1;
+}
+.mission{
+margin-top:30px;
+padding:26px 28px;
+border-left:5px solid var(--sky);
+background:var(--ice);
+border-radius:0 18px 18px 0;
+}
+.mission h3{font-size:1.5rem;margin-bottom:8px}
+.mission p{color:var(--muted);font-size:.98rem}
+
+/* VÍDEO */
+.video{background:var(--ice);overflow:hidden}
+.video-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:50px;
+align-items:center;
+}
+.vid{
+width:100%;
+max-width:380px;
+margin:0 auto;
+aspect-ratio:9/16;
+border-radius:22px;
+background:#000;
+overflow:hidden;
+position:relative;
+display:block;
+border:0;
+box-shadow:0 20px 44px rgba(6,33,77,.18);
+}
+.vid video{
+display:block;
+width:100%;
+height:100%;
+object-fit:contain;
+background:#000;
+border-radius:inherit;
+}
+.video-som-aviso{
+display:none;
+position:absolute;
+inset:auto 12px 14px;
+z-index:5;
+padding:15px 12px;
+border:0;
+border-radius:12px;
+background:rgba(3,22,54,.94);
+color:#fff;
+font:700 .85rem var(--sans);
+cursor:pointer;
+}
+.video-som-aviso.visivel{display:block}
+
+/* SERVIÇOS */
+.services{background:var(--ice);overflow:hidden}
+.services:before{
+content:"";
+position:absolute;
+right:30px;
+top:40px;
+width:190px;
+height:190px;
+background-image:radial-gradient(var(--sky) 2.5px,transparent 2.5px);
+background-size:19px 19px;
+opacity:.6;
+}
+.srv-head{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:50px;
+align-items:end;
+margin-bottom:40px;
+position:relative;
+}
+.srv{
+display:grid;
+grid-template-columns:.8fr 1.2fr;
+gap:40px;
+padding:28px 18px;
+border-top:1px solid var(--line);
+position:relative;
+transition:background .3s,padding .3s;
+}
+.srv:last-child{border-bottom:1px solid var(--line)}
+.srv:hover{background:#fff;padding-left:30px}
+.srv h3{font-size:1.65rem}
+.srv h3:before{content:"✦";color:var(--sky);margin-right:12px;font-size:1.1rem}
+.srv p{color:var(--muted)}
+
+.gal-head{
+display:flex;
+justify-content:space-between;
+align-items:end;
+gap:30px;
+flex-wrap:wrap;
+margin-bottom:36px;
+}
+.gal-head h2{margin:0}
+.gal{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;align-items:start}
+.gal .ph{border-radius:24px;aspect-ratio:9/16}
+.g4,.g6{margin-top:44px}
+
+.values{background:var(--deep);color:#fff;overflow:hidden}
+.values:before{
+content:"";
+position:absolute;
+width:640px;
+height:640px;
+border-radius:50%;
+border:50px solid rgba(70,193,246,.09);
+right:-240px;
+top:-260px;
+}
+.values:after{
+content:"";
+position:absolute;
+width:380px;
+height:380px;
+border-radius:50%;
+border:26px solid rgba(31,143,232,.14);
+left:-170px;
+bottom:-190px;
+}
+.values .wrap{position:relative;z-index:1}
+.values h2{color:#fff}
+.values .lead{color:#b4d0f0}
+.val-list{
+margin-top:44px;
+display:grid;
+grid-template-columns:1fr 1fr;
+column-gap:70px;
+}
+.val{
+padding:26px 0;
+border-top:1px solid rgba(255,255,255,.16);
+transition:padding .3s;
+}
+.val:hover{padding-left:14px}
+.val h3{color:var(--sky);font-size:1.7rem;margin-bottom:6px}
+.val p{color:#c5dbf5;font-size:.98rem}
+
+.steps{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:40px;
+margin-top:44px;
+}
+.step{border-top:4px solid var(--sky);padding-top:20px}
+.step b{
+display:grid;
+place-items:center;
+width:58px;
+height:58px;
+border-radius:50%;
+background:var(--ice);
+border:2px solid var(--sky);
+font:400 1.9rem var(--serif);
+color:var(--blue);
+}
+.step h3{font-size:1.4rem;margin:14px 0 6px}
+.step p{color:var(--muted);font-size:.97rem}
+
+.contact{background:var(--navy);color:#fff;overflow:hidden}
+.contact:before{
+content:"";
+position:absolute;
+width:700px;
+height:700px;
+border-radius:50%;
+border:60px solid rgba(70,193,246,.1);
+left:-300px;
+bottom:-380px;
+}
+.c-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:70px;
+position:relative;
+}
+.contact h2{color:#fff}
+.contact .lead{color:#c3daf7}
+.c-links{margin-top:30px}
+.c-links a{
+display:block;
+padding:16px 0;
+border-bottom:1px solid rgba(255,255,255,.16);
+transition:padding .25s;
+}
+.c-links a:hover{padding-left:12px}
+.c-links small{display:block;color:#8fc3ee;font-size:.82rem}
+.c-links span{font-family:var(--serif);font-size:1.55rem}
+
+form{
+background:#fff;
+border-radius:26px;
+padding:38px;
+display:grid;
+gap:14px;
+color:var(--ink);
+box-shadow:0 24px 50px rgba(0,0,0,.3);
+}
+form h3{font-size:1.7rem}
+label{font-weight:600;font-size:.88rem;color:var(--navy)}
+input,textarea{
+width:100%;
+margin-top:5px;
+padding:13px 15px;
+border:2px solid var(--line);
+border-radius:12px;
+font:inherit;
+background:#f9fcff;
+}
+input:focus,textarea:focus{outline:0;border-color:var(--blue)}
+textarea{min-height:96px;resize:vertical}
+
+footer{background:var(--deep);color:#9fbfe6;padding:44px 0;font-size:.9rem}
+.f-in{
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:20px;
+flex-wrap:wrap;
+}
+.f-links{display:flex;gap:24px}
+footer a:hover{color:var(--sky)}
+
+.wpp{
+position:fixed;
+right:20px;
+bottom:20px;
+z-index:60;
+width:58px;
+height:58px;
+border-radius:50%;
+background:#25d366;
+display:grid;
+place-items:center;
+animation:pulse 2.4s infinite;
+}
+.wpp svg{width:30px;height:30px;fill:#fff}
+@keyframes pulse{
+0%{box-shadow:0 0 0 0 rgba(37,211,102,.55)}
+70%,100%{box-shadow:0 0 0 18px rgba(37,211,102,0)}
+}
+
+.js .rv{
+opacity:0;
+transform:translateY(26px);
+transition:opacity .8s,transform .8s;
+}
+.js .rv.on{opacity:1;transform:none}
+
+/* CELULAR */
+@media(max-width:900px){
+section{padding:72px 0}
+.hero{padding:120px 0 65px}
+.hero-grid,.about-grid,.srv-head,.c-grid{
+grid-template-columns:1fr;
+gap:44px;
+}
+.hero-ph{aspect-ratio:4/5;max-width:420px}
+.hero-fig:before{inset:14px -10px -10px 14px}
+.hero-tag{left:12px}
+.srv{grid-template-columns:1fr;gap:6px}
+.val-list,.steps{grid-template-columns:1fr}
+.steps{gap:28px}
+.gal{grid-template-columns:1fr 1fr;gap:12px}
+.g4,.g6{margin-top:0}
+.lg{width:150px;height:54px;font-size:.72rem}
+.brand img{height:56px}
+.burger{display:block}
+.menu{
+position:fixed;
+top:0;
+right:-100%;
+height:100vh;
+height:100dvh;
+width:78%;
+max-width:320px;
+background:var(--deep);
+flex-direction:column;
+justify-content:center;
+gap:26px;
+transition:right .35s;
+}
+.menu.open{right:0}
+nav.open .burger i:nth-child(1){transform:translateY(9px) rotate(45deg)}
+nav.open .burger i:nth-child(2){opacity:0}
+nav.open .burger i:nth-child(3){transform:translateY(-9px) rotate(-45deg)}
+form{padding:28px 22px}
+.video-grid{grid-template-columns:1fr;gap:30px}
+.vid{width:100%;max-width:360px;border-radius:20px}
+.video .lead{font-size:1rem}
+}
+@media(max-width:480px){
+.wrap{padding:0 19px}
+.hero{padding-top:110px;padding-bottom:55px}
+.hero-grid{gap:34px}
+.hero h1{font-size:2.75rem}
+.hero p{font-size:1rem}
+.hero-tag{bottom:20px;max-width:190px;font-size:.82rem;padding:12px 16px}
+.hero-ph{aspect-ratio:4/5}
+.video{padding:65px 0}
+.vid{max-width:100%;border-radius:16px}
+.btn{padding:13px 21px;font-size:.88rem}
+.btns{gap:10px}
+.gal{gap:10px}
+.gal .ph{border-radius:15px}
+.c-links span{font-size:1.3rem}
+.wpp{width:54px;height:54px;right:15px;bottom:15px}
+}
+@media(prefers-reduced-motion:reduce){
+*,*::before,*::after{animation:none!important;transition:none!important}
+html{scroll-behavior:auto}
+.js .rv{opacity:1;transform:none}
+.splash .brand{animation:none;transform:none;opacity:1}
+}
+</style>
+</head>
+
+<body>
+
+<script>
+document.documentElement.classList.add('js');
+document.body.classList.add('splashing');
+</script>
+
+<div class="splash" id="splash" aria-hidden="true">
+<div class="brand" data-logo>
+<img alt="">
+<span class="lg">SUA LOGO</span>
+</div>
+</div>
+
+<nav id="nav">
+<div class="wrap nav-in">
+<a href="#inicio" class="brand" data-logo aria-label="Cora Limpeza e Conservação">
+<img alt="Cora Limpeza e Conservação">
+<span class="lg">SUA LOGO</span>
+</a>
+
+<button class="burger" id="burger" aria-label="Abrir menu" aria-expanded="false">
+<i></i><i></i><i></i>
+</button>
+
+<ul class="menu" id="menu">
+<li><a href="#sobre">Quem somos</a></li>
+<li><a href="#servicos">Serviços</a></li>
+<li><a href="#ambientes">Ambientes</a></li>
+<li><a href="#valores">Valores</a></li>
+<li><a class="btn btn-fill" href="#contato">Pedir orçamento</a></li>
+</ul>
+</div>
+</nav>
+
+<header class="hero" id="inicio">
+<div class="wrap hero-grid">
+<div>
+<h1>Ambientes mais limpos, mais motivação!</h1>
+<p>Cuidamos da limpeza e da conservação da sua academia, para os seus alunos treinarem num espaço organizado, seguro e agradável todos os dias.</p>
+<div class="btns">
+<a class="btn btn-fill" href="https://wa.me/5562982868702?text=Ol%C3%A1!%20Gostaria%20de%20um%20or%C3%A7amento%20de%20limpeza%20para%20minha%20academia" target="_blank" rel="noopener">Pedir orçamento no WhatsApp</a>
+<a class="btn btn-out" href="#servicos">Ver serviços</a>
+</div>
+</div>
+<div class="hero-fig">
+<figure class="ph hero-ph" data-foto="1">
+<img alt="Nosso trabalho dentro da academia">
+<figcaption>FOTO 1<small>vertical · 900 x 1200 px</small></figcaption>
+</figure>
+<div class="hero-tag">Cuidado com cada ambiente da sua academia</div>
+</div>
+</div>
+</header>
+
+<section id="sobre">
+<div class="wrap about-grid">
+<div class="about-fig rv">
+<figure class="ph about-ph" data-foto="2">
+<img alt="Nossa equipe cuidando da academia">
+<figcaption>FOTO 2<small>vertical · 900 x 1400 px</small></figcaption>
+</figure>
+</div>
+<div class="rv">
+<h2>Cuidamos da sua academia com atenção de verdade</h2>
+<p class="lead">A Cora Limpeza e Conservação cuida de academias do salão de treino aos vestiários, com agilidade, organização e respeito por cada detalhe.</p>
+<div class="mission">
+<h3>Nossa missão</h3>
+<p>Oferecer serviços de limpeza e conservação com qualidade, responsabilidade e agilidade, contribuindo para ambientes mais organizados, seguros e agradáveis. Buscamos entender as necessidades de cada cliente e entregar um serviço eficiente, cuidadoso e profissional.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section class="services" id="servicos">
+<div class="wrap">
+<div class="srv-head rv">
+<h2>Onde a Cora entra em ação</h2>
+<p class="lead">Cada área da academia pede um tipo de cuidado. Veja o que fazemos em cada uma delas.</p>
+</div>
+<div class="rv">
+<div class="srv">
+<h3>Salão de treino</h3>
+<p>Limpeza de pisos, aparelhos e equipamentos de musculação e cardio, para um treino confortável.</p>
+</div>
+<div class="srv">
+<h3>Vestiários e armários</h3>
+<p>Higienização de vestiários, banheiros e armários, com atenção à segurança e ao bem-estar dos alunos.</p>
+</div>
+<div class="srv">
+<h3>Salas de aula e espelhos</h3>
+<p>Espelhos, vidros e pisos das salas de aula e de dança sempre limpos e sem marcas.</p>
+</div>
+<div class="srv">
+<h3>Pisos e escadas</h3>
+<p>Conservação de pisos e escadas, mantendo o visual e a durabilidade do espaço.</p>
+</div>
+<div class="srv">
+<h3>Recepção e áreas comuns</h3>
+<p>A primeira impressão da sua academia sempre em ordem.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section id="ambientes">
+<div class="wrap">
+<div class="gal-head rv">
+<h2>Ambientes que a gente cuida</h2>
+<a class="btn btn-dark" href="https://www.instagram.com/coralimpeza/" target="_blank" rel="noopener">Ver mais no Instagram</a>
+</div>
+<div class="gal rv">
+<figure class="ph g3" data-foto="3">
+<img alt="Salão de treino">
+<figcaption>FOTO 3<small>vertical (stories) · 1080 x 1920 px</small></figcaption>
+</figure>
+<figure class="ph g4" data-foto="4">
+<img alt="Sala de aula com espelhos">
+<figcaption>FOTO 4<small>vertical (stories) · 1080 x 1920 px</small></figcaption>
+</figure>
+<figure class="ph g5" data-foto="5">
+<img alt="Vestiário e armários">
+<figcaption>FOTO 5<small>vertical (stories) · 1080 x 1920 px</small></figcaption>
+</figure>
+<figure class="ph g6" data-foto="6">
+<img alt="Escadas e pisos">
+<figcaption>FOTO 6<small>vertical (stories) · 1080 x 1920 px</small></figcaption>
+</figure>
+</div>
+</div>
+</section>
+
+<!-- VÍDEO -->
+<section class="video" id="video">
+<div class="wrap video-grid">
+<div class="rv">
+<h2>Veja a limpeza acontecendo</h2>
+<p class="lead">Um pouco do nosso trabalho no dia a dia: cuidado, organização e agilidade em cada ambiente da academia.</p>
+<div class="btns" style="margin-top:28px">
+<a class="btn btn-dark" href="#contato">Quero isso na minha academia</a>
+</div>
+</div>
+
+<figure class="vid rv" id="vid">
+<video id="videoPlayer" controls playsinline webkit-playsinline preload="auto">
+Seu navegador não conseguiu carregar este vídeo.
+</video>
+<button type="button" class="video-som-aviso" id="videoSomAviso">🔊 Tocar vídeo com som</button>
+</figure>
+</div>
+</section>
+
+<section class="values" id="valores">
+<div class="wrap">
+<div class="rv">
+<h2>Nossos valores</h2>
+<p class="lead">O que guia o nosso trabalho dentro de cada ambiente.</p>
+</div>
+<div class="val-list rv">
+<div class="val"><h3>Cuidado</h3><p>Atenção aos detalhes e respeito por cada ambiente.</p></div>
+<div class="val"><h3>Responsabilidade</h3><p>Compromisso com nossos clientes, colaboradores e serviços prestados.</p></div>
+<div class="val"><h3>Agilidade</h3><p>Eficiência e organização para atender cada necessidade com rapidez.</p></div>
+<div class="val"><h3>Qualidade</h3><p>Busca constante pela excelência em tudo o que fazemos.</p></div>
+<div class="val"><h3>Confiança</h3><p>Transparência, respeito e compromisso em cada relação.</p></div>
+<div class="val"><h3>Profissionalismo</h3><p>Dedicação e seriedade para oferecer soluções adequadas a cada empresa.</p></div>
+</div>
+</div>
+</section>
+
+<section>
+<div class="wrap">
+<h2 class="rv">Como funciona o atendimento</h2>
+<div class="steps rv">
+<div class="step">
+<b>1</b>
+<h3>Você chama a gente</h3>
+<p>Mande uma mensagem no WhatsApp e conte sobre a sua academia.</p>
+</div>
+<div class="step">
+<b>2</b>
+<h3>Entendemos sua rotina</h3>
+<p>Conversamos sobre os espaços, os horários e o que é prioridade para você.</p>
+</div>
+<div class="step">
+<b>3</b>
+<h3>Cuidamos de tudo</h3>
+<p>Nossa equipe deixa a academia pronta para receber seus alunos.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section class="contact" id="contato">
+<div class="wrap c-grid">
+<div class="rv">
+<h2>Vamos conversar sobre a sua academia?</h2>
+<p class="lead">Peça um orçamento sem compromisso. Respondemos com atenção e agilidade.</p>
+<div class="c-links">
+<a href="https://wa.me/5562982868702" target="_blank" rel="noopener">
+<small>WhatsApp / Telefone</small><span>62 98286-8702</span>
+</a>
+<a href="mailto:coralimpeza@gmail.com">
+<small>E-mail</small><span>coralimpeza@gmail.com</span>
+</a>
+<a href="https://www.instagram.com/coralimpeza/" target="_blank" rel="noopener">
+<small>Instagram</small><span>@coralimpeza</span>
+</a>
+<a href="https://linktr.ee/coralimpeza" target="_blank" rel="noopener">
+<small>Mais links</small><span>linktr.ee/coralimpeza</span>
+</a>
+</div>
+</div>
+
+<form id="form" class="rv">
+<h3>Envie uma mensagem</h3>
+<label>Seu nome<input id="nome" required></label>
+<label>Nome da academia<input id="acad"></label>
+<label>O que você precisa?<textarea id="msg"></textarea></label>
+<button class="btn btn-dark" type="submit">Enviar pelo WhatsApp</button>
+</form>
+</div>
+</section>
+
+<footer>
+<div class="wrap f-in">
+<a href="#inicio" class="brand" data-logo aria-label="Cora Limpeza e Conservação">
+<img alt="Cora Limpeza e Conservação">
+<span class="lg">SUA LOGO</span>
+</a>
+<div class="f-links">
+<a href="https://www.instagram.com/coralimpeza/" target="_blank" rel="noopener">Instagram</a>
+<a href="https://linktr.ee/coralimpeza" target="_blank" rel="noopener">Linktree</a>
+<a href="mailto:coralimpeza@gmail.com">E-mail</a>
+</div>
+<span>© <span id="yr"></span> Cora Limpeza e Conservação</span>
+</div>
+</footer>
+
+<a class="wpp" href="https://wa.me/5562982868702?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Cora%20Limpeza" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+<svg viewBox="0 0 24 24" aria-hidden="true">
+<path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm5.2 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8 0-1.3.7-1.9.9-2.2.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .5l-.4.6c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l2 1c.3.1.5.2.5.4.1.2.1.8-.1 1.4z"/>
+</svg>
+</a>
+
+<script>
+// APLICA LOGO E FOTOS
+function aplica(el,nome){
+var img=el.querySelector("img");
+if(!nome||!img)return;
+var comExt=/\.(png|jpe?g|webp|gif|svg)$/i.test(nome);
+var lista=comExt?[nome]:[
+".png",".jpg",".jpeg",".webp",".PNG",".JPG",".JPEG"
+].map(function(ext){return nome+ext});
+var i=0;
+img.onload=function(){el.classList.add("ok")};
+img.onerror=function(){
+i++;
+if(i<lista.length)img.src=encodeURI(lista[i]);
+else el.classList.remove("ok");
+};
+img.src=encodeURI(lista[0]);
+}
+
+document.querySelectorAll("[data-logo]").forEach(function(el){
+aplica(el,LOGO);
+});
+
+var fotos={1:FOTO1,2:FOTO2,3:FOTO3,4:FOTO4,5:FOTO5,6:FOTO6};
+
+document.querySelectorAll("[data-foto]").forEach(function(el){
+aplica(el,fotos[el.dataset.foto]);
+});
+
+// ABERTURA DA LOGO
+var splash=document.getElementById("splash");
+
+window.setTimeout(function(){
+splash.classList.add("hide");
+document.body.classList.remove("splashing");
+window.setTimeout(function(){splash.remove()},750);
+},2500);
+
+
+// ==========================================
+// VÍDEO AUTOMÁTICO COM ÁUDIO
+// ==========================================
+
+var vd=document.getElementById("videoPlayer");
+var vf=document.getElementById("vid");
+var avisoSom=document.getElementById("videoSomAviso");
+
+var videoAtivo=false;
+var tentandoReproduzir=false;
+var indiceVideo=0;
+
+if(VIDEO){
+
+var listaVideo=/\.(mp4|mov|webm|m4v)$/i.test(VIDEO)
+?[VIDEO]
+:[".mp4",".mov",".webm",".MP4",".MOV"].map(function(ext){
+return VIDEO+ext;
+});
+
+vd.src=encodeURI(listaVideo[0]);
+vd.load();
+
+vd.addEventListener("loadedmetadata",function(){
+if(vd.videoWidth&&vd.videoHeight){
+vf.style.aspectRatio=vd.videoWidth+" / "+vd.videoHeight;
+}
+});
+
+vd.addEventListener("error",function(){
+if(indiceVideo<listaVideo.length-1){
+indiceVideo++;
+vd.src=encodeURI(listaVideo[indiceVideo]);
+vd.load();
+}
+});
+
+// TENTA REPRODUZIR COM ÁUDIO
+function reproduzirVideo(){
+
+if(!videoAtivo||tentandoReproduzir||!vd.paused)return;
+
+tentandoReproduzir=true;
+vd.muted=false;
+vd.volume=1;
+
+var tentativa=vd.play();
+
+if(tentativa&&typeof tentativa.then==="function"){
+
+tentativa.then(function(){
+tentandoReproduzir=false;
+avisoSom.classList.remove("visivel");
+
+}).catch(function(){
+tentandoReproduzir=false;
+vd.pause();
+avisoSom.classList.add("visivel");
+});
+
+}else{
+tentandoReproduzir=false;
+}
+
+}
+
+// BOTÃO PARA LIBERAR O SOM
+avisoSom.addEventListener("click",function(){
+
+vd.muted=false;
+vd.volume=1;
+
+var tentativa=vd.play();
+
+if(tentativa&&typeof tentativa.then==="function"){
+tentativa.then(function(){
+avisoSom.classList.remove("visivel");
+}).catch(function(){
+avisoSom.classList.add("visivel");
+});
+}
+
+});
+
+// QUANDO COMEÇAR A TOCAR
+vd.addEventListener("playing",function(){
+avisoSom.classList.remove("visivel");
+});
+
+// OBSERVA A ÁREA VISÍVEL DO VÍDEO
+var observadorVideo=new IntersectionObserver(function(entradas){
+
+entradas.forEach(function(entrada){
+
+var porcentagem=entrada.intersectionRatio;
+
+// VÍDEO VISÍVEL: REPRODUZ
+if(porcentagem>=0.35){
+
+videoAtivo=true;
+reproduzirVideo();
+
+}
+
+// VÍDEO QUASE FORA DA TELA: PAUSA
+if(porcentagem<=0.20){
+
+videoAtivo=false;
+vd.pause();
+tentandoReproduzir=false;
+
+}
+
+});
+
+},{
+threshold:[0,0.20,0.35,0.60,0.85],
+rootMargin:"-5% 0px -5% 0px"
+});
+
+observadorVideo.observe(vd);
+
+// QUANDO TROCAR DE ABA
+document.addEventListener("visibilitychange",function(){
+
+if(document.hidden){
+videoAtivo=false;
+vd.pause();
+tentandoReproduzir=false;
+}
+
+});
+
+}
+
+
+// MENU
+var nav=document.getElementById("nav");
+var menu=document.getElementById("menu");
+var burger=document.getElementById("burger");
+
+burger.onclick=function(){
+var aberto=menu.classList.toggle("open");
+nav.classList.toggle("open",aberto);
+burger.setAttribute("aria-expanded",String(aberto));
+burger.setAttribute("aria-label",aberto?"Fechar menu":"Abrir menu");
+};
+
+menu.querySelectorAll("a").forEach(function(a){
+a.onclick=function(){
+menu.classList.remove("open");
+nav.classList.remove("open");
+burger.setAttribute("aria-expanded","false");
+burger.setAttribute("aria-label","Abrir menu");
+};
+});
+
+function atualizarNav(){
+nav.classList.toggle("solid",window.scrollY>40);
+}
+atualizarNav();
+window.addEventListener("scroll",atualizarNav,{passive:true});
+
+
+// ANIMAÇÕES AO ROLAR
+var io=new IntersectionObserver(function(entradas){
+entradas.forEach(function(entrada){
+if(entrada.isIntersecting){
+entrada.target.classList.add("on");
+io.unobserve(entrada.target);
+}
+});
+},{threshold:.1});
+
+document.querySelectorAll(".rv").forEach(function(el){
+io.observe(el);
+});
+
+
+// FORMULÁRIO WHATSAPP
+document.getElementById("form").onsubmit=function(e){
+e.preventDefault();
+
+var nome=document.getElementById("nome").value.trim();
+var acad=document.getElementById("acad").value.trim();
+var msg=document.getElementById("msg").value.trim();
+
+var texto="Olá! Meu nome é "+nome+
+(acad?", da academia "+acad:"")+
+(msg?". "+msg:". Gostaria de receber um orçamento.");
+
+window.open(
+"https://wa.me/5562982868702?text="+encodeURIComponent(texto),
+"_blank",
+"noopener"
+);
+};
+
+// ANO AUTOMÁTICO
+document.getElementById("yr").textContent=new Date().getFullYear();
+
+</script>
+</body>
+</html>
